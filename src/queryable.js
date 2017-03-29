@@ -5,15 +5,19 @@ export class Queryable{
         validateContext(context);
         this._entity = entity;
         this._context = context;
+        this._ast = {};
 
     }
-    select(){
+    select(projection){
+        this._ast["select"] = projection.toString();
         return this;
     }
-    where(){
+    where(predictate){
+        this._ast["where"] = {params,expresion}
         return this;
     }
-    order(){
+    order(expresion){
+        this._ast["order"] ={expresion,value}
         return this;
     }
     provider(){
